@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome {{request.session.first_name}}</title>
+  </head>
+  <body>
+    <h2 style="display: inline-block">Welcome {{request.session.first_name}}!!</h2>  <a href="/logout">Logout</a>
+
+      <h4>Friends:</h4>
+    {% for user in friend_users %}
+      <p>Name: {{user.first_name}} | <a href="/account/{{user.id}}">View Profile</a> | <a href="/remove_friend/{{user.id}}">Remove as Friend</a></p>
+    {% endfor %}
+
+
+    <h4>Other Users not in your friend's list:</h4>
+    {% for user in other_users %}
+      <p>Name: <a href="/account/{{user.id}}">{{user.first_name}}</a> | <a href="/add_friend/{{user.id}}">Add as Friend</a></p>
+    {% endfor %}
+    <p>you just gotta be friends with everyone for now...</p>
+
+
+
+  </body>
+</html>

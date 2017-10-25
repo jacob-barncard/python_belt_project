@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      {% for user in other_users %}
+        <title>{{user.first_name}}'s Account</title>
+      {% endfor %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% load staticfiles %}
+    </head>
+    <body>
+
+        {% for user in friend_users %}
+          <h1>{{user.first_name}}'s Profile</h1>
+
+          <h4>Name: {{user.first_name}} {{user.last_name}}</h4>
+          <h4>{{user.first_name}}'s email: {{user.email}}</h4>
+        {% endfor %}
+
+
+      <h3 style="display: inline-block;"> <a href="/dashboard">Home</a> </h3> | <a href="/logout">Logout</a>
+    </body>
+</html>
